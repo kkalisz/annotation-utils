@@ -34,7 +34,7 @@ public class ClassAnnotationMap
     {
         if(!fieldAnnotations.containsKey(annotationClass))
         {
-            fieldAnnotations.put(annotationClass,AnnotationExtractor.extract(annotatedClass,annotationClass));
+            fieldAnnotations.put(annotationClass, AnnotationExtractor.extractFields(annotatedClass, annotationClass));
         }
         return (FieldAnnotationMap<V>) fieldAnnotations.get(annotationClass);
     }

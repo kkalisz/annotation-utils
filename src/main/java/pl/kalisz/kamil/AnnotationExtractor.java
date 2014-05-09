@@ -28,7 +28,7 @@ public class AnnotationExtractor
      * @param <V> type of annotation
      * @return {@link pl.kalisz.kamil.FieldAnnotationMap} for {@link V} type ( only for this class no superclass data is extracted  )
      */
-    public static <V extends Annotation> FieldAnnotationMap<V> extract(Class sourceClass, Class<V> annotationClass)
+    public static <V extends Annotation> FieldAnnotationMap<V> extractFields(Class sourceClass, Class<V> annotationClass)
     {
         FieldAnnotationMap annotationMap = new FieldAnnotationMap();
         for (Field field : sourceClass.getDeclaredFields())

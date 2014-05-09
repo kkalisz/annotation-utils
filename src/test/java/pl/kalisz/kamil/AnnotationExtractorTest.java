@@ -28,7 +28,7 @@ public class AnnotationExtractorTest
     @Test
     public void extractTestAnnotationFromBaseClassTest()
     {
-        FieldAnnotationMap<TestAnnotation> extractedAnnotations = AnnotationExtractor.extract(BaseAnnotatedClass.class, TestAnnotation.class);
+        FieldAnnotationMap<TestAnnotation> extractedAnnotations = AnnotationExtractor.extractFields(BaseAnnotatedClass.class, TestAnnotation.class);
 
         Assert.assertEquals(extractedAnnotations.getFieldsInfo().size(),2);
     }
@@ -36,7 +36,7 @@ public class AnnotationExtractorTest
     @Test
     public void extractDeprecatedFromBaseClassTest()
     {
-        FieldAnnotationMap<Deprecated> extractedAnnotations = AnnotationExtractor.extract(BaseAnnotatedClass.class, Deprecated.class);
+        FieldAnnotationMap<Deprecated> extractedAnnotations = AnnotationExtractor.extractFields(BaseAnnotatedClass.class, Deprecated.class);
 
         Assert.assertEquals(extractedAnnotations.getFieldsInfo().size(),1);
     }
