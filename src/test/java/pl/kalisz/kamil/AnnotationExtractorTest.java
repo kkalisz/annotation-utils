@@ -2,8 +2,6 @@ package pl.kalisz.kamil;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.robolectric.RobolectricTestRunner;
 import pl.kalisz.kamil.data.BaseAnnotatedClass;
 import pl.kalisz.kamil.data.TestAnnotation;
 
@@ -22,7 +20,6 @@ import pl.kalisz.kamil.data.TestAnnotation;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-@RunWith(RobolectricTestRunner.class)
 public class AnnotationExtractorTest
 {
     @Test

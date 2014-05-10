@@ -1,10 +1,7 @@
 package pl.kalisz.kamil;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.robolectric.RobolectricTestRunner;
 import pl.kalisz.kamil.data.BaseAnnotatedClass;
 import pl.kalisz.kamil.data.TestAnnotation;
 
@@ -23,14 +20,13 @@ import pl.kalisz.kamil.data.TestAnnotation;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-@RunWith(RobolectricTestRunner.class)
 public class ClassAnnotationMapTest
 {
-    
+
     @Test
     public void emptyClassGetAnnotationMapTest()
     {
-        ClassAnnotationMap classAnnotationMap =  new ClassAnnotationMap(BaseAnnotatedClass.class);
+        ClassAnnotationMap classAnnotationMap = new ClassAnnotationMap(BaseAnnotatedClass.class);
         FieldAnnotationMap<TestAnnotation> fieldAnnotationMap = classAnnotationMap.getFieldAnnotationMap(TestAnnotation.class);
 
         Assert.assertNotNull(fieldAnnotationMap);
@@ -39,12 +35,12 @@ public class ClassAnnotationMapTest
     @Test
     public void notEmptyClassGetAnnotationMapTest()
     {
-        ClassAnnotationMap classAnnotationMap =  new ClassAnnotationMap(BaseAnnotatedClass.class);
+        ClassAnnotationMap classAnnotationMap = new ClassAnnotationMap(BaseAnnotatedClass.class);
         FieldAnnotationMap<TestAnnotation> firstInvokeResult = classAnnotationMap.getFieldAnnotationMap(TestAnnotation.class);
 
         FieldAnnotationMap<TestAnnotation> secondInvokeResult = classAnnotationMap.getFieldAnnotationMap(TestAnnotation.class);
 
-        Assert.assertSame(firstInvokeResult,secondInvokeResult);
+        Assert.assertSame(firstInvokeResult, secondInvokeResult);
     }
-    
+
 }

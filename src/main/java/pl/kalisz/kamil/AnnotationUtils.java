@@ -1,7 +1,7 @@
 package pl.kalisz.kamil;
 
 
-import android.support.v4.util.LruCache;
+import pl.kalisz.kamil.cache.LruCache;
 
 import java.lang.annotation.Annotation;
 
@@ -41,7 +41,7 @@ public class AnnotationUtils
      * @return {@link pl.kalisz.kamil.FieldAnnotationMap} for {@link V} and recursively for all superclasses of {@link V}
 
      */
-    public static <V extends Annotation> FieldAnnotationMap<V> getFieldAnnotations(Class sourceClass, Class<V> annotationClass)
+    public synchronized static <V extends Annotation> FieldAnnotationMap<V> getFieldAnnotations(Class sourceClass, Class<V> annotationClass)
     {
         FieldAnnotationMap<V> fieldAnnotationMap = new FieldAnnotationMap<V>();
         while (sourceClass != null)
@@ -53,12 +53,7 @@ public class AnnotationUtils
         return fieldAnnotationMap;
     }
     
-    public static void setMaxCacheSize(int cacheSize)
-    {
-        annotationsCache.trimToSize(cacheSize);
-    }
-    
-    public static int getMaxCacheSize()
+    public synchronized static long getMaxCacheSize()
     {
         return annotationsCache.maxSize();
     }
