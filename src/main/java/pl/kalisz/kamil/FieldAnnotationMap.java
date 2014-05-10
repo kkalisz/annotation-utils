@@ -48,7 +48,7 @@ public class FieldAnnotationMap<V extends Annotation> implements Serializable, I
         return fieldAnnotationInfoList;
     }
 
-    public void add(FieldAnnotationMap<V> fieldAnnotationMap)
+    void add(FieldAnnotationMap<V> fieldAnnotationMap)
     {
         fieldAnnotationInfoList.addAll(fieldAnnotationMap.getFieldsInfo());
     }
